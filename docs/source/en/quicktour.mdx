@@ -56,7 +56,7 @@ You can load the model as follows:
 
 The [`DiffusionPipeline`] downloads and caches all modeling, tokenization, and scheduling components. 
 Because the model consists of roughly 1.4 billion parameters, we strongly recommend running it on GPU.
-You can move the generator object to GPU, just like you would in PyTorch.
+You can move the pipeline object to GPU, just like you would in PyTorch.
 
 ```python
 >>> pipeline.to("cuda")
@@ -92,8 +92,8 @@ and then loading the saved weights into the pipeline.
 Running the pipeline is then identical to the code above as it's the same model architecture.
 
 ```python
->>> generator.to("cuda")
->>> image = generator("An image of a squirrel in Picasso style").images[0]
+>>> pipeline.to("cuda")
+>>> image = pipeline("An image of a squirrel in Picasso style").images[0]
 >>> image.save("image_of_squirrel_painting.png")
 ```
 
